@@ -456,6 +456,10 @@ public class Rhythm extends JFrame {
 			g.drawString("HIGHSCORE", 750, 250);
 			g.setFont(new Font("Helvetica Neue", Font.BOLD, 70));
 			g.drawString(Highscores.getHighScore(game.getTitleName()).replace("/", ": "), 725, 375);
+			g.setFont(new Font("Impact", Font.BOLD, 30));
+			g.drawString("YOUR SCORE: ", 750, 500);
+			g.setFont(new Font("Helvetica Neue", Font.BOLD, 70));
+			g.drawString(Integer.toString(Rhythm.game.getScore()), 950, 512);
 		}
 		paintComponents(g);
 		try {
