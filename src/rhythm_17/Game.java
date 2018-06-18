@@ -47,7 +47,8 @@ public class Game extends Thread {
 	List<Note> noteList = new ArrayList<Note>();
 
 	private int score = 0;
-
+	public static final int OFFSET = 1000;
+	
 	Beat[] beats = null;
 	
 	public Game(String titleName, String musicTitle) {
@@ -289,8 +290,13 @@ public class Game extends Thread {
 					new Beat(startTime + gap * 394, "Space"),
 					new Beat(startTime + gap * 398, "S"),
 					
+					new Beat(startTime + gap * 405, "F"),
+					new Beat(startTime + gap * 414, "J"),
+					new Beat(startTime + gap * 416, "K"),
+					new Beat(startTime + gap * 418, "K"),					
 			};
-			new Reminder(55752);
+			int timeLimit = beats[beats.length - 1].getTime();
+			new Reminder(timeLimit + OFFSET + 5000);
 		} else if (titleName.equals("F-777 - Sonic Blaster")) {
 			int startTime = Main.REACH_TIME;
 			int gap = 125;
@@ -378,15 +384,17 @@ public class Game extends Thread {
 					new Beat(startTime + gap * 292, "Space"),
 
 					new Beat(startTime + gap * 296, "Space"),
-					new Beat(startTime + gap * 399, "Space"),
+					new Beat(startTime + gap * 299, "Space"),
 					new Beat(startTime + gap * 302, "Space"),
 					
 					new Beat(startTime + gap * 309, "L"),
 					new Beat(startTime + gap * 312, "S"),
 					new Beat(startTime + gap * 315, "L"),
-										
+					
+					
 			};
-			new Reminder(46877);
+			int timeLimit = beats[beats.length - 1].getTime();
+			new Reminder(timeLimit + OFFSET + 5000);
 		} else if (titleName.equals("Panda Eyes & Teminite - Highscore")) {
 			int startTime = Main.REACH_TIME;
 			int gap = 125;
@@ -613,7 +621,8 @@ public class Game extends Thread {
 					new Beat(startTime + gap * 457, "L"),
 					new Beat(startTime + gap * 458, "Space"),
 			};
-			new Reminder(60000);
+			int timeLimit = beats[beats.length - 1].getTime();
+			new Reminder(timeLimit + OFFSET + 5000);
 		}
 
 		int i = 0;
@@ -736,7 +745,8 @@ public class Game extends Thread {
 
 			@Override
 			public void run() {
-				Main.rhythm.enterScores();
+				if (!Main.rhythm.isMainScreen)
+					Main.rhythm.enterScores();
 				timer.cancel();
 			}
 			

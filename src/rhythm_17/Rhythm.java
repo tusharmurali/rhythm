@@ -68,9 +68,9 @@ public class Rhythm extends JFrame {
 
 	private int mouseX, mouseY;
 
-	private boolean isMainScreen = false;
-	private boolean isGameScreen = false;
-	private boolean isScoresScreen = false;
+	public boolean isMainScreen = false;
+	public boolean isGameScreen = false;
+	public boolean isScoresScreen = false;
 	
 	List<Track> trackList = new ArrayList<Track>();
 
